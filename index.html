@@ -14,7 +14,11 @@
 </head>
 
 <body>
-  <canvas width="300" height="200" id="canvas"></canvas>
+  <canvas 
+    width='<script>Asteroids.Game.DIM_X</script>'
+    height='<script>Asteroids.Game.DIM_Y</script>' 
+    id="canvas">
+  </canvas>
 </body>
 
 </html>
@@ -24,8 +28,10 @@
 var canvas = document.getElementById('canvas');
 var c = canvas.getContext('2d');
 
-c.fillStyle = "red";
-c.fillRect(0, 0, 300, 200);
+var g = new Asteroids.Game(c);
+g.start();
+
+
 
 
 // c.fillStyle = '#ccddff';
@@ -65,8 +71,5 @@ c.fillRect(0, 0, 300, 200);
 // 
 // console.log(a);
 
-
-var g = new Asteroids.Game(c);
-g.start();
 
 </script>
