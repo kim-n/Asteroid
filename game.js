@@ -31,5 +31,9 @@
         }
     }
     
-
+    Game.prototype.step = function() {
+        this.move();
+        this.draw();
+    }
+    
 })(this);
