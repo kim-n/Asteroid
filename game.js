@@ -41,3 +41,5 @@
         setInterval(this.step.bind(this), Game.FPS);
     }
 })(this);
+
+console.log("game.js loaded")

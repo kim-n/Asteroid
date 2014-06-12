@@ -33,3 +33,5 @@
     }
     
 })(this);
+
+console.log("asteroid.js loaded")

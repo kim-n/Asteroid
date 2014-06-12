@@ -39,3 +39,5 @@
         return radiiSum > dist;
     }
 })(this);
+
+console.log("moving_objects.js loaded")
