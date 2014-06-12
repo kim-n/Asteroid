@@ -25,5 +25,11 @@
         }
     }
     
+    Game.prototype.move = function() {
+        for(var i = 0; i < this.asteroids.length; i++){
+            this.asteroids[i].move();
+        }
+    }
+    
 
 })(this);
