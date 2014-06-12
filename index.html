@@ -7,6 +7,7 @@
 
   <script src="moving_object.js"></script>
   <script src="asteroid.js"></script>
+  <script src="game.js"></script>
 
   <title>Asteroids.</title>
   
@@ -59,10 +60,13 @@ c.fillRect(0, 0, 300, 200);
 // 
 // console.log(obj.isCollidedWith(objB))
 
-var a = Asteroids.Asteroid.randomAsteroid(300, 200);
-a.draw(c);
+// var a = Asteroids.Asteroid.randomAsteroid(300, 200);
+// a.draw(c);
+// 
+// console.log(a);
 
-console.log(a);
 
+var g = new Asteroids.Game(c);
+g.start();
 
 </script>

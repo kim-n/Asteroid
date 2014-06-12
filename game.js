@@ -36,4 +36,8 @@
         this.draw();
     }
     
+    Game.prototype.start = function() {
+        this.addAsteroids(10);
+        setInterval(this.step.bind(this), Game.FPS);
+    }
 })(this);
