@@ -26,3 +26,14 @@ MovingObject.prototype.draw = function(ctx) {
     ctx.strokeStyle = this.color ;
     ctx.stroke();
 }
+
+
+var distance = function(objA, objB){
+    return Math.sqrt(Math.pow(objA[0]-objB[0],2) + Math.pow(objA[1]-objB[1],2));
+}
+
+MovingObject.prototype.isCollidedWith = function(otherObject) {
+    var dist = distance(this.pos, otherObject.pos);
+    var radiiSum = this.radius + otherObject.radius;
+    return radiiSum > dist;
+}
