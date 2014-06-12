@@ -16,4 +16,20 @@
     Asteroid.COLOR = "blue";
     Asteroid.RADIUS = 20;
     
+    var randomPosition = function(xMax, yMax){
+        return [Math.floor(Math.random() * xMax),
+                Math.floor(Math.random() * yMax)]
+    }
+    
+    var randomVelocity = function(xMax, yMax){
+        return [Math.floor(Math.random() * 2 * xMax) - xMax,
+                Math.floor(Math.random() * 2 * yMax) - yMax]
+    }
+    
+    Asteroid.randomAsteroid = function(dimX, dimY) {
+        var pos = randomPosition(dimX, dimY);
+        var vel = randomVelocity(dimX/10, dimY/10);
+        return new Asteroid(pos, vel);
+    }
+    
 })(this);
