@@ -4,6 +4,8 @@
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
+  <script src="moving_object.js"></script>
+
   <title>Asteroids.</title>
   
 </head>
@@ -42,5 +44,18 @@ c.fillRect(0, 0, 300, 200);
 // c.strokeStyle = 'green';
 // c.stroke();
 // 
+
+var obj = new Asteroids.MovingObject([100,100],[100, 100], 40, 'blue');
+var objB = new Asteroids.MovingObject([100,100],[100, 100], 40, 'blue');
+
+console.log(obj.isCollidedWith(objB))
+obj.move()
+obj.draw(c)
+objB.draw(c)
+console.log(obj)
+console.log(objB)
+
+console.log(obj.isCollidedWith(objB))
+
 
 </script>
