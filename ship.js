@@ -9,10 +9,19 @@
     
     Ship.RADIUS = 10;
     Ship.COLOR = 'green';
+    Ship.MAX_SPEED = 10;
     
     Ship.prototype.power = function(impulse) {  // impulse => [x,y]
-        this.vel[0] += this.impulse[0];
-        this.vel[1] += this.impulse[1];
+        var dx = this.vel[0] + impulse[0];
+        var dy = this.vel[1] + impulse[1];
+        console.log(dx, Ship.MAX_SPEED, dx > 0 - Ship.MAX_SPEED && dx < Ship.MAX_SPEED);
+        if (dx > 0 - Ship.MAX_SPEED && dx < Ship.MAX_SPEED){
+            this.vel[0] += impulse[0];
+        }        
+        if (dy > 0 - Ship.MAX_SPEED && dy < Ship.MAX_SPEED){
+            this.vel[1] += impulse[1];
+        }
+        console.log(this.vel);
     }
     
 })(this);

@@ -43,7 +43,15 @@
     }
     
     Game.prototype.start = function() {
-        
+        var that = this;
+        var dx = 3;
+        key('up, down, right, left', function(event, handler){
+             if(key.isPressed('up')) {that.ship.power([0,0-dx])};
+             if(key.isPressed('down')) {that.ship.power([0,dx])};
+             if(key.isPressed('right')) {that.ship.power([dx,0])};
+             if(key.isPressed('left')) {that.ship.power([0-dx,0])};
+         });
+
         this.addAsteroids(10);
         this.currentInterval = setInterval(this.step.bind(this), Game.FPS);
     }
