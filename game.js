@@ -4,7 +4,8 @@
     var Game = Asteroids.Game = function(ctx) {
         this.ctx = ctx;
         this.asteroids = [];
-        this.ship = new Asteroids.Ship([Game.DIM_X/2,Game.DIM_Y/2], [0,0])
+        this.ship = new Asteroids.Ship([Game.DIM_X/2,Game.DIM_Y/2], [0,0]);
+        this.currentInterval;
     }
     
     Game.DIM_X = 300;
@@ -38,12 +39,26 @@
     Game.prototype.step = function() {
         this.move();
         this.draw();
+        this.checkCollisions();
     }
     
     Game.prototype.start = function() {
         
         this.addAsteroids(10);
-        setInterval(this.step.bind(this), Game.FPS);
+        this.currentInterval = setInterval(this.step.bind(this), Game.FPS);
+    }
+    
+    Game.prototype.stop = function() {
+        alert("GAME OVER!");
+        clearInterval(this.currentInterval);
+    }
+    
+    Game.prototype.checkCollisions = function() {
+        for(var i=0; i< this.asteroids.length; i++){
+            if(this.ship.isCollidedWith(this.asteroids[i])){
+                this.stop();
+            }
+        }
     }
 })(this);
 
