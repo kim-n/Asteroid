@@ -4,6 +4,7 @@
     var Game = Asteroids.Game = function(ctx) {
         this.ctx = ctx;
         this.asteroids = [];
+        this.ship = new Asteroids.Ship([Game.DIM_X/2,Game.DIM_Y/2], [0,0])
     }
     
     Game.DIM_X = 300;
@@ -38,6 +39,7 @@
     }
     
     Game.prototype.start = function() {
+        
         this.addAsteroids(10);
         setInterval(this.step.bind(this), Game.FPS);
     }
