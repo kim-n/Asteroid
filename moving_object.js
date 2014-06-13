@@ -15,6 +15,18 @@
     }
 
     MovingObject.prototype.move = function() {
+        var x = this.pos[0];
+        var y = this.pos[1];
+        var dimX = Asteroids.Game.DIM_X;
+        var dimY = Asteroids.Game.DIM_Y;
+        
+        if (x <= (0 - this.radius) || x >= (dimX + this.radius)) {
+          this.pos[0] = dimX - x;
+        }
+        if (y <= (0 - this.radius) || y >= (dimY + this.radius)) {
+          this.pos[1] = dimY - y;
+        }
+        
         this.pos[0] += this.vel[0]  // update x pos
         this.pos[1] += this.vel[1]  // update y pos
     }
