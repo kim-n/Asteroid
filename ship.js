@@ -10,6 +10,11 @@
     Ship.RADIUS = 10;
     Ship.COLOR = 'green';
     
+    Ship.prototype.power = function(impulse) {  // impulse => [x,y]
+        this.vel[0] += this.impulse[0];
+        this.vel[1] += this.impulse[1];
+    }
+    
 })(this);
 
 console.log("ship.js loaded")
