@@ -32,6 +32,7 @@
         for(var i = 0; i < this.asteroids.length; i++){
             this.asteroids[i].move();
         }
+        this.ship.move();
     }
     
     Game.prototype.step = function() {
