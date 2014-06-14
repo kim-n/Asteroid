@@ -11,4 +11,14 @@
     Bullet.COLOR = 'yellow';
     Bullet.VELOCITY = 15;
     
+    Bullet.prototype.hitAsteroids = function(asteroids) {
+        var hits = []
+        for(int i = 0; i < asteroids.length; i++){
+            if(this.isCollidedWith(asteroid[i])){
+                hits.push(i);
+            }
+        }
+        return hits;
+    }
+    
 })(this);
