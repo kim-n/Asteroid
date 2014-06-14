@@ -14,7 +14,7 @@
     Bullet.prototype.hitAsteroids = function(asteroids) {
         var hits = [];
         for(var i = 0; i < asteroids.length; i++){
-            if(this.isCollidedWith(asteroid[i])){
+            if(this.isCollidedWith(asteroids[i])){
                 hits.push(i);
             };
         };
