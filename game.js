@@ -61,7 +61,7 @@
              if(key.isPressed('down')) {that.ship.power([0,dx])};
              if(key.isPressed('right')) {that.ship.power([dx,0])};
              if(key.isPressed('left')) {that.ship.power([0-dx,0])};
-             if(key.isPressed('space')) {console.log("space"); that.fireBullet()};
+             if(key.isPressed('space')) {that.fireBullet()};
          });
 
         this.addAsteroids(10);

@@ -22,3 +22,5 @@
     }
     
 })(this);
+
+console.log("ship.js loaded")
