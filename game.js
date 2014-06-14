@@ -49,6 +49,7 @@
     Game.prototype.step = function() {
         this.move();
         this.draw();
+        this.removeAsteroids()
         this.checkCollisions();
     }
     
@@ -90,6 +91,18 @@
     
     Game.prototype.removeBullet = function(pos){
         this.bullets.splice(pos,1)
+    }
+    
+    Game.prototype.removeAsteroids = function() {
+      for (var b=this.bullets.length-1; b >=0 ; b--) {
+       var hitAsteroids = this.bullets[b].hitAsteroids(this.asteroids);
+       if (hitAsteroids.length > 0) {
+         for (var a= hitAsteroids.length-1; a >=0 ; a--) {
+           this.asteroids.splice(hitAsteroids[a], 1);
+         }
+         this.bullets.splice(b, 1);
+       }
+      }
     }
 })(this);
 
