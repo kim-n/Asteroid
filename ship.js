@@ -24,6 +24,17 @@
         console.log(this.vel);
     }
     
+    Ship.prototype.fireBullet(){
+        var speed = Math.sqrt(Math.pow(this.vel[0],2) + Math.pow(this.vel[1],2));
+
+        if (speed != 0) {
+          var vel = [];
+          vel[0] =  Asteroids.Bullet.VELOCITY * (shipVel[0] / speed);
+          vel[1] =  Asteroids.Bullet.VELOCITY * (shipVel[1] / speed);
+          return new Asteroids.Bullet(this.pos, vel)
+        }
+    }
+    
 })(this);
 
 console.log("ship.js loaded")
