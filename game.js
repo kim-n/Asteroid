@@ -41,10 +41,9 @@
         for(var i = this.bullets.length -1 ; i >= 0; i--){
             this.bullets[i].move();
             if(this.bullets[i].isExitCanvas()){
-                this.bullets.splice(i,1)
+                this.removeBullet(i);
             }
         }
-        console.log(this.bullets)
     }
     
     Game.prototype.step = function() {
@@ -87,6 +86,10 @@
         if(bullet){
             this.bullets.push(bullet);
         }
+    }
+    
+    Game.prototype.removeBullet = function(pos){
+        this.bullets.splice(pos,1)
     }
 })(this);
 
