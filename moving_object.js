@@ -56,6 +56,21 @@
         var radiiSum = this.radius + otherObject.radius;
         return radiiSum > dist;
     }
+    
+    MovingObject.prototype.isExitCanvas = function(otherObject) {
+        var x = this.pos[0];
+        var y = this.pos[1];
+        var dimX = Asteroids.Game.DIM_X;
+        var dimY = Asteroids.Game.DIM_Y;
+        
+        if (x <= (0 - this.radius) || x >= (dimX + this.radius)) {
+          return true
+        }
+        if (y <= (0 - this.radius) || y >= (dimY + this.radius)) {
+          return true
+        }
+        return false
+    }
 })(this);
 
 console.log("moving_objects.js loaded")

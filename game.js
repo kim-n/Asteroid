@@ -38,16 +38,19 @@
             this.asteroids[i].move();
         }
         this.ship.move();
-        for(var i = 0; i < this.bullets.length; i++){
-            console.log(this.bullets)
+        for(var i = this.bullets.length -1 ; i >= 0; i--){
             this.bullets[i].move();
+            if(this.bullets[i].isExitCanvas()){
+                this.bullets.splice(i,1)
+            }
         }
+        console.log(this.bullets)
     }
     
     Game.prototype.step = function() {
         this.move();
         this.draw();
-        // this.checkCollisions();
+        this.checkCollisions();
     }
     
     Game.prototype.start = function() {
