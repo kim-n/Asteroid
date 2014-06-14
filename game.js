@@ -9,9 +9,9 @@
         this.currentInterval;
     }
     
-    Game.DIM_X = 300;
-    Game.DIM_Y = 200;
-    Game.FPS = 300;
+    Game.DIM_X = 600;
+    Game.DIM_Y = 400;
+    Game.FPS = 100;
     
     Game.prototype.addAsteroids = function(numAsteroids) {
         for(var x = 0; x < numAsteroids; x++){

@@ -7,7 +7,7 @@
     
     Bullet.inherits(Asteroids.MovingObject);
     
-    Bullet.RADIUS = 2;
+    Bullet.RADIUS = 3;
     Bullet.COLOR = 'yellow';
     Bullet.VELOCITY = 15;
     
