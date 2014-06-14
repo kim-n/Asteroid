@@ -31,7 +31,7 @@
           var vel = [];
           vel[0] =  Asteroids.Bullet.VELOCITY * (this.vel[0] / speed);
           vel[1] =  Asteroids.Bullet.VELOCITY * (this.vel[1] / speed);
-          return new Asteroids.Bullet(this.pos, vel)
+          return new Asteroids.Bullet([this.pos[0], this.pos[1]], vel)
         }
     }
     

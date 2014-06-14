@@ -9,6 +9,6 @@
     
     Bullet.RADIUS = 2;
     Bullet.COLOR = 'yellow';
-    Bullet.VELOCITY = 5;
+    Bullet.VELOCITY = 15;
     
 })(this);
