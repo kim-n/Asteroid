@@ -61,9 +61,10 @@
     }
     
     Game.prototype.step = function() {
+        this.checkWon();
         this.move();
         this.draw();
-        this.removeAsteroids()
+        this.removeAsteroids();
         this.checkCollisions();
     }
     
@@ -82,16 +83,22 @@
         this.currentInterval = setInterval(this.step.bind(this), Game.FPS);
     }
     
-    Game.prototype.stop = function() {
-        alert("GAME OVER!");
+    Game.prototype.stop = function(message) {
+        alert(message);
         clearInterval(this.currentInterval);
     }
     
     Game.prototype.checkCollisions = function() {
         for(var i=0; i< this.asteroids.length; i++){
             if(this.ship.isCollidedWith(this.asteroids[i])){
-                this.stop();
+                this.stop("GAME LOST!");
             }
+        }
+    }
+    
+    Game.prototype.checkWon = function() {
+        if(this.asteroids.length === 0){
+            this.stop("GAME WON!!!");
         }
     }
     
