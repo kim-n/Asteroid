@@ -26,8 +26,6 @@
     }
     
     Ship.prototype.fireBullet = function(){
-        var speed = Math.sqrt(Math.pow(this.vel[0],2) + Math.pow(this.vel[1],2));
-
         var vel = [];
         vel[0] =  Asteroids.Bullet.VELOCITY * Math.sin(this.angle * Math.PI / 180) * -1;
         vel[1] =  Asteroids.Bullet.VELOCITY * Math.cos(this.angle * Math.PI / 180) * -1;
@@ -53,7 +51,6 @@
     
     Ship.prototype.rotate = function(dx) {
         this.angle = (this.angle + dx) % 360;
-        console.log(this.angle)
     }
     
     Ship.prototype.draw = function(ctx) {
@@ -61,22 +58,25 @@
         ctx.beginPath();
         // (x, y, radius, start[RADIANS], end[RADIANS], clockwise?)
 
-        x = this.pos[0];
-        y = this.pos[1];
+        var opening = 20
+        var x = this.pos[0];
+        var y = this.pos[1];
                         
         ctx.arc(
             this.pos[0],
             this.pos[1],
             this.radius,
-            0,
-            2 * Math.PI,
+            (this.angle - opening + 90) * Math.PI / 180 * -1,
+            (this.angle + opening + 90) * Math.PI / 180 * -1,
             false
         );
         ctx.stroke();
-        
+
         ctx.beginPath();
-        ctx.moveTo(x,y);
-        ctx.lineTo(x - this.radius * Math.sin((this.angle) * Math.PI / 180) , y - this.radius * Math.cos((this.angle) * Math.PI / 180));
+        ctx.moveTo(x - this.radius * Math.sin((this.angle - opening) * Math.PI / 180) , y - this.radius * Math.cos((this.angle - opening) * Math.PI / 180));
+        ctx.lineTo(x,y);
+        ctx.lineTo(x - this.radius * Math.sin((this.angle + opening) * Math.PI / 180) , y - this.radius * Math.cos((this.angle + opening) * Math.PI / 180));
+
         ctx.stroke();
     }
 })(this);

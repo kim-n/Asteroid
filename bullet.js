@@ -9,7 +9,7 @@
     
     Bullet.RADIUS = 3;
     Bullet.COLOR = 'yellow';
-    Bullet.VELOCITY = 15;
+    Bullet.VELOCITY = 30;
     
     Bullet.prototype.hitAsteroids = function(asteroids) {
         var hits = [];
