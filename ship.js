@@ -28,12 +28,10 @@
     Ship.prototype.fireBullet = function(){
         var speed = Math.sqrt(Math.pow(this.vel[0],2) + Math.pow(this.vel[1],2));
 
-        if (speed != 0) {
-          var vel = [];
-          vel[0] =  Asteroids.Bullet.VELOCITY * (this.vel[0] / speed);
-          vel[1] =  Asteroids.Bullet.VELOCITY * (this.vel[1] / speed);
-          return new Asteroids.Bullet([this.pos[0], this.pos[1]], vel)
-        }
+        var vel = [];
+        vel[0] =  Asteroids.Bullet.VELOCITY * Math.sin(this.angle * Math.PI / 180) * -1;
+        vel[1] =  Asteroids.Bullet.VELOCITY * Math.cos(this.angle * Math.PI / 180) * -1;
+        return new Asteroids.Bullet([this.pos[0], this.pos[1]], vel)
     }
     
     Ship.prototype.move = function() {
