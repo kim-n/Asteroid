@@ -65,18 +65,22 @@
         this.move();
         this.draw();
         this.removeAsteroids();
+        if(this.ship.vel[0] != 0){ // only need to check one since both care chaged uniformly
+            this.ship.power([2,2]);
+        }
+        console.log(this.ship.vel)
         // this.checkCollisions();
-        // console.log(this.ship)
     }
     
     Game.prototype.start = function() {
         var that = this;
-        var dx = 15;
+        var dx = 6;
+        var angle = 30;
         key('up, down, right, left, space', function(event, handler){
-             if(key.isPressed('up')) {that.ship.power([-3,-3])};
-             if(key.isPressed('down')) {that.ship.power([3,3])};
-             if(key.isPressed('right')) {that.ship.rotate(-dx)};
-             if(key.isPressed('left')) {that.ship.rotate(dx)};
+             if(key.isPressed('up')) {that.ship.power([-dx,-dx])};
+             // if(key.isPressed('down')) {that.ship.power([dx,dx])};
+             if(key.isPressed('right')) {that.ship.rotate(-angle)};
+             if(key.isPressed('left')) {that.ship.rotate(angle)};
              if(key.isPressed('space')) {that.fireBullet()};
          });
 

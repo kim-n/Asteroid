@@ -10,7 +10,7 @@
     
     Ship.RADIUS = 10;
     Ship.COLOR = 'green';
-    Ship.MAX_SPEED = 10;
+    Ship.MAX_SPEED = 20;
     
     Ship.prototype.power = function(impulse) {  // impulse => [x,y]
         var dx = this.vel[0] + impulse[0];
@@ -54,7 +54,7 @@
     }
     
     Ship.prototype.rotate = function(dx) {
-        this.angle += dx % 360;
+        this.angle = (this.angle + dx) % 360;
         console.log(this.angle)
     }
 })(this);
