@@ -65,17 +65,18 @@
         this.move();
         this.draw();
         this.removeAsteroids();
-        this.checkCollisions();
+        // this.checkCollisions();
+        // console.log(this.ship)
     }
     
     Game.prototype.start = function() {
         var that = this;
-        var dx = 3;
+        var dx = 15;
         key('up, down, right, left, space', function(event, handler){
-             if(key.isPressed('up')) {that.ship.power([0,0-dx])};
-             if(key.isPressed('down')) {that.ship.power([0,dx])};
-             if(key.isPressed('right')) {that.ship.power([dx,0])};
-             if(key.isPressed('left')) {that.ship.power([0-dx,0])};
+             if(key.isPressed('up')) {that.ship.power([-3,-3])};
+             if(key.isPressed('down')) {that.ship.power([3,3])};
+             if(key.isPressed('right')) {that.ship.rotate(-dx)};
+             if(key.isPressed('left')) {that.ship.rotate(dx)};
              if(key.isPressed('space')) {that.fireBullet()};
          });
 
