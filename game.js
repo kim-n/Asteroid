@@ -68,8 +68,8 @@
         if(this.ship.vel[0] != 0){ // only need to check one since both care chaged uniformly
             this.ship.power([2,2]);
         }
-        console.log(this.ship.vel)
-        // this.checkCollisions();
+        // console.log(this.ship.vel)
+        this.checkCollisions();
     }
     
     Game.prototype.start = function() {

@@ -57,6 +57,30 @@
         this.angle = (this.angle + dx) % 360;
         console.log(this.angle)
     }
+    
+    Ship.prototype.draw = function(ctx) {
+        ctx.strokeStyle = this.color ;
+        ctx.beginPath();
+        // (x, y, radius, start[RADIANS], end[RADIANS], clockwise?)
+
+        x = this.pos[0];
+        y = this.pos[1];
+                        
+        ctx.arc(
+            this.pos[0],
+            this.pos[1],
+            this.radius,
+            0,
+            2 * Math.PI,
+            false
+        );
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+        ctx.lineTo(x - this.radius * Math.sin((this.angle) * Math.PI / 180) , y - this.radius * Math.cos((this.angle) * Math.PI / 180));
+        ctx.stroke();
+    }
 })(this);
 
 console.log("ship.js loaded")
