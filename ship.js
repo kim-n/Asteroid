@@ -70,9 +70,9 @@
             (this.angle + opening + 90) * Math.PI / 180 * -1,
             false
         );
-        ctx.stroke();
+        // ctx.stroke();
 
-        ctx.beginPath();
+        // ctx.beginPath();
         ctx.moveTo(x - this.radius * Math.sin((this.angle - opening) * Math.PI / 180) , y - this.radius * Math.cos((this.angle - opening) * Math.PI / 180));
         ctx.lineTo(x,y);
         ctx.lineTo(x - this.radius * Math.sin((this.angle + opening) * Math.PI / 180) , y - this.radius * Math.cos((this.angle + opening) * Math.PI / 180));
