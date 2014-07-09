@@ -7,7 +7,7 @@
     
     Asteroid.inherits(Asteroids.MovingObject)
 
-    Asteroid.COLOR = "blue";
+    Asteroid.COLOR = "#00CCCC";
     Asteroid.RADIUS = 20;
     Asteroids.MAX_SPEED = 10;
     
@@ -38,6 +38,26 @@
         var vel = randomVelocity(Asteroids.MAX_SPEED, Asteroids.MAX_SPEED);        
         return new Asteroid(pos, vel);
     }
+    
+    Asteroid.prototype.draw = function(ctx) {
+        ctx.beginPath();
+        // (x, y, radius, start[RADIANS], end[RADIANS], clockwise?)
+        ctx.arc(
+            this.pos[0],
+            this.pos[1],
+            this.radius,
+            0,
+            2 * Math.PI,
+            false
+        );
+        
+        ctx.strokeStyle = "#66CC99";
+        ctx.stroke();
+        
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+    
 
 
 })(this);

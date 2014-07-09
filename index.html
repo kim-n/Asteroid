@@ -10,20 +10,39 @@
   <script src="game.js"></script>
   <script src="ship.js"></script>
   <script src="bullet.js"></script>
+  <link rel="stylesheet" href="style.css">
 
-  <title>Asteroids.</title>
+  <title>Bubble Pop | Asteroids</title>
   
 </head>
 
 <body>
+  <header>Bubble Pop!</header>
+  <div id="instructions">
+    Instructions
+    <div id="left">
+     	<p>[ &#8593; ] - power engines</p>
+      <p>[ &#8594; ] - rotate right</p>
+    </div>
+
+    <div id="right">
+      <p>[ &#8592; ] - rotate left</p>
+      <p>[ SPACE ] - Fire shards</p>
+    </div>
+
+  </div>
+  <div id="canvas-container">
   <canvas 
-    width="600"
-    height="430"
-    id="canvas">
-  </canvas>
+      width="600"
+      height="430"
+      id="canvas">
+    </canvas>
+  </div>
 </body>
 
 </html>
+
+
 
 
 <script>

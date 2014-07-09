@@ -9,7 +9,7 @@
     Ship.inherits(Asteroids.MovingObject)
     
     Ship.RADIUS = 10;
-    Ship.COLOR = 'green';
+    Ship.COLOR = "#FF9999";
     Ship.MAX_SPEED = 20;
     
     Ship.prototype.power = function(impulse) {  // impulse => [x,y]
@@ -72,11 +72,17 @@
         );
         // ctx.stroke();
 
+        
+        ctx.fillStyle = this.color;
+        ctx.fill();
         // ctx.beginPath();
         ctx.moveTo(x - this.radius * Math.sin((this.angle - opening) * Math.PI / 180) , y - this.radius * Math.cos((this.angle - opening) * Math.PI / 180));
         ctx.lineTo(x,y);
         ctx.lineTo(x - this.radius * Math.sin((this.angle + opening) * Math.PI / 180) , y - this.radius * Math.cos((this.angle + opening) * Math.PI / 180));
 
+        ctx.stroke();
+        
+        ctx.strokeStyle = "black";
         ctx.stroke();
     }
 })(this);

@@ -22,7 +22,7 @@
     
     Game.prototype.draw = function() {
         this.ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y + 10);
-        this.ctx.fillStyle = "red";
+        this.ctx.fillStyle = "#CCFFFF";
         this.ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
         
 
@@ -35,11 +35,11 @@
             this.bullets[i].draw(this.ctx);
         }
         
-        this.ctx.fillStyle = "green";
+        this.ctx.fillStyle = "#99CC99";
         this.ctx.fillRect(0, Game.DIM_Y, Game.DIM_X, Game.DIM_Y + 30);
         
         this.ctx.font = "20px Georgia";
-        this.ctx.fillStyle = "black";
+        this.ctx.fillStyle = "#FFFFCC";
         this.ctx.fillText("Points: ", 0, Game.DIM_Y + 20);
         this.ctx.fillText(1000 - (100 * this.asteroids.length) , 90, Game.DIM_Y + 20);
         this.ctx.fillText("Asteroids left: ", 400, Game.DIM_Y + 20);

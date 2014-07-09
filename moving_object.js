@@ -42,7 +42,7 @@
             2 * Math.PI,
             false
         );
-        ctx.strokeStyle = this.color ;
+        ctx.strokeStyle = this.color;
         ctx.stroke();
     }
 
