@@ -1,0 +1,97 @@
+<!Doctype html>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <script src="keymaster.js"></script>
+  <script src="moving_object.js"></script>
+  <script src="asteroid.js"></script>
+  <script src="game.js"></script>
+  <script src="ship.js"></script>
+  <script src="bullet.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <title>Bubble Pop | Asteroids</title>
+  
+</head>
+
+<body>
+  <a class="home" href="http://knarine.com/">Home</a>
+  <header>Bubble Pop!</header>
+  <div id="instructions">
+    Instructions
+    <div id="left">
+      <p>[ SPACE ] - Fire shards</p>
+     	<p>[ &#8593; ] - power engines</p>
+    </div>
+
+    <div id="right">
+      <p>[ &#8594; ] - rotate right</p>
+      <p>[ &#8592; ] - rotate left</p>
+    </div>
+
+  </div>
+  <div id="canvas-container">
+  <canvas 
+      width="600"
+      height="430"
+      id="canvas">
+    </canvas>
+  </div>
+</body>
+
+</html>
+
+
+
+
+<script>
+var canvas = document.getElementById('canvas');
+var c = canvas.getContext('2d');
+
+var g = new Asteroids.Game(c);
+g.start();
+
+
+
+
+// c.fillStyle = '#ccddff';
+// c.beginPath();
+// c.moveTo(50,20);
+// c.lineTo(200,50);
+// c.lineTo(150,80);
+// c.closePath();
+// c.fill();
+// c.strokeStyle = 'rgb(0,128,0)';
+// c.lineWidth = 5;
+// c.stroke();
+// 
+// c.beginPath();
+// c.moveTo(250,250);
+// 
+// c.arc(0, 0, 50, 0,  2 * Math.PI, false);
+// c.lineWidth = 5;
+// c.strokeStyle = 'green';
+// c.stroke();
+// 
+
+// var obj = new Asteroids.MovingObject([100,100],[100, 100], 40, 'blue');
+// var objB = new Asteroids.MovingObject([100,100],[100, 100], 40, 'blue');
+// 
+// console.log(obj.isCollidedWith(objB))
+// obj.move()
+// obj.draw(c)
+// objB.draw(c)
+// console.log(obj)
+// console.log(objB)
+// 
+// console.log(obj.isCollidedWith(objB))
+
+// var a = Asteroids.Asteroid.randomAsteroid(300, 200);
+// a.draw(c);
+// 
+// console.log(a);
+
+
+</script>
