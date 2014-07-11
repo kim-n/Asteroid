@@ -42,7 +42,7 @@
         this.ctx.font = "20px Georgia";
         this.ctx.fillStyle = "#FFFFCC";
         this.ctx.fillText("Points: ", 15, Game.DIM_Y + 20);
-        this.ctx.fillText(1000 - (100 * this.asteroids.length) , 90, Game.DIM_Y + 20);
+        this.ctx.fillText(this.score , 90, Game.DIM_Y + 20);
         this.ctx.fillText("Asteroids left: ", 400, Game.DIM_Y + 20);
         this.ctx.fillText(this.asteroids.length, 550, Game.DIM_Y + 20);
         
@@ -69,7 +69,7 @@
         if(this.ship.vel[0] != 0){ // only need to check one since both care chaged uniformly
             this.ship.power([2,2]);
         }
-        // this.checkCollisions();
+        this.checkCollisions();
     }
     
     Game.prototype.start = function() {
@@ -126,12 +126,18 @@
             var hitAsteroids = this.bullets[b].hitAsteroids(this.asteroids);
             if (hitAsteroids.length > 0) {
                 for (var a= hitAsteroids.length-1; a >=0 ; a--) {
-                    // return new Asteroid(pos, vel);
-                    var pos = this.asteroids[hitAsteroids[a]].pos.slice();
-                    var vel = this.asteroids[hitAsteroids[a]].vel.slice();
-                    this.asteroids.push(new Asteroids.Asteroid(pos, [0-vel[0], vel[1]]));
-                    this.asteroids.push(new Asteroids.Asteroid(pos.slice(), [vel[0], 0-vel[1]]));
+                    var rad = this.asteroids[hitAsteroids[a]].radius;
+                    this.score += 100;
+                    // if large/medium bubble hit, add two smaller bubbles
+                    if(rad > Asteroids.Asteroid.RADIUS/4){
+                        var pos = this.asteroids[hitAsteroids[a]].pos.slice();
+                        var vel = this.asteroids[hitAsteroids[a]].vel.slice();
+                        
+                        this.asteroids.push(new Asteroids.Asteroid(pos, [0-vel[0], vel[1]], rad/2));
+                        this.asteroids.push(new Asteroids.Asteroid(pos.slice(), [vel[0], 0-vel[1]],  rad/2));
+                    }
                     
+                    // remove hit bubble
                     this.asteroids.splice(hitAsteroids[a], 1);                    
                 }
                 this.bullets.splice(b, 1);

@@ -1,14 +1,14 @@
 (function(root){
     var Asteroids = root.Asteroids = (root.Asteroids || {});
     
-    var Asteroid = Asteroids.Asteroid = function(pos, vel){
-        Asteroids.MovingObject.call(this, pos, vel, Asteroid.RADIUS, Asteroid.COLOR)
+    var Asteroid = Asteroids.Asteroid = function(pos, vel, radius=Asteroid.RADIUS){
+        Asteroids.MovingObject.call(this, pos, vel, radius, Asteroid.COLOR)
     }
     
     Asteroid.inherits(Asteroids.MovingObject)
 
     Asteroid.COLOR = "#00CCCC";
-    Asteroid.RADIUS = 20;
+    Asteroid.RADIUS = 40;
     Asteroids.MAX_SPEED = 10;
     
     var randomPosition = function(xMax, yMax) {
