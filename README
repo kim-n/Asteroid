@@ -7,5 +7,10 @@ Asteroids Redone
 07/11/14
 To do:
 - Replace destroyed bubbles by new bubbles
-- Split poked bubbles (DONE: splits bubbles into two)
++ Split poked bubbles (DONE: splits bubbles into two)
 - Have popping effect on bubbles
+- Make new bubbles increase veocity
+
+Bugs:
+- Ship can disappear behind score bar
+- Ship doesn't thrust smoothly/ fast enough
