@@ -40,7 +40,7 @@
         
         this.ctx.font = "20px Georgia";
         this.ctx.fillStyle = "#FFFFCC";
-        this.ctx.fillText("Points: ", 0, Game.DIM_Y + 20);
+        this.ctx.fillText("Points: ", 15, Game.DIM_Y + 20);
         this.ctx.fillText(1000 - (100 * this.asteroids.length) , 90, Game.DIM_Y + 20);
         this.ctx.fillText("Asteroids left: ", 400, Game.DIM_Y + 20);
         this.ctx.fillText(this.asteroids.length, 550, Game.DIM_Y + 20);
