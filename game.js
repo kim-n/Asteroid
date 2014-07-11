@@ -13,6 +13,7 @@
     Game.DIM_X = 600;
     Game.DIM_Y = 400;
     Game.FPS = 100;
+    Game.START_ASTEROIDS = 10;
     
     Game.prototype.addAsteroids = function(numAsteroids) {
         for(var x = 0; x < numAsteroids; x++){
@@ -40,8 +41,8 @@
         
         this.ctx.font = "20px Georgia";
         this.ctx.fillStyle = "#FFFFCC";
-        this.ctx.fillText("Points: ", 0, Game.DIM_Y + 20);
-        this.ctx.fillText(1000 - (100 * this.asteroids.length) , 90, Game.DIM_Y + 20);
+        this.ctx.fillText("Points: ", 15, Game.DIM_Y + 20);
+        this.ctx.fillText(this.score , 90, Game.DIM_Y + 20);
         this.ctx.fillText("Asteroids left: ", 400, Game.DIM_Y + 20);
         this.ctx.fillText(this.asteroids.length, 550, Game.DIM_Y + 20);
         
@@ -68,7 +69,6 @@
         if(this.ship.vel[0] != 0){ // only need to check one since both care chaged uniformly
             this.ship.power([2,2]);
         }
-        // console.log(this.ship.vel)
         this.checkCollisions();
     }
     
@@ -84,7 +84,7 @@
              if(key.isPressed('space')) {that.fireBullet()};
          });
 
-        this.addAsteroids(10);
+        this.addAsteroids(Game.START_ASTEROIDS);
         this.currentInterval = setInterval(this.step.bind(this), Game.FPS);
     }
     
@@ -120,15 +120,29 @@
     }
     
     Game.prototype.removeAsteroids = function() {
-      for (var b=this.bullets.length-1; b >=0 ; b--) {
-       var hitAsteroids = this.bullets[b].hitAsteroids(this.asteroids);
-       if (hitAsteroids.length > 0) {
-         for (var a= hitAsteroids.length-1; a >=0 ; a--) {
-           this.asteroids.splice(hitAsteroids[a], 1);
-         }
-         this.bullets.splice(b, 1);
-       }
-      }
+        for (var b=this.bullets.length-1; b >=0 ; b--) {
+            
+            // list of indexes of asteroids that were hit by bullets
+            var hitAsteroids = this.bullets[b].hitAsteroids(this.asteroids);
+            if (hitAsteroids.length > 0) {
+                for (var a= hitAsteroids.length-1; a >=0 ; a--) {
+                    var rad = this.asteroids[hitAsteroids[a]].radius;
+                    this.score += 100;
+                    // if large/medium bubble hit, add two smaller bubbles
+                    if(rad > Asteroids.Asteroid.RADIUS/4){
+                        var pos = this.asteroids[hitAsteroids[a]].pos.slice();
+                        var vel = this.asteroids[hitAsteroids[a]].vel.slice();
+                        
+                        this.asteroids.push(new Asteroids.Asteroid(pos, [0-vel[0], vel[1]], rad/2));
+                        this.asteroids.push(new Asteroids.Asteroid(pos.slice(), [vel[0], 0-vel[1]],  rad/2));
+                    }
+                    
+                    // remove hit bubble
+                    this.asteroids.splice(hitAsteroids[a], 1);                    
+                }
+                this.bullets.splice(b, 1);
+            }
+        }
     }
 })(this);
 
