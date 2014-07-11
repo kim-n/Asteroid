@@ -18,11 +18,21 @@ body {
 }
 
 body{
+  background: #DDFFFF;
+}
+
+.main {
+  background: #FFCC99;
   font-family:monospace;
   text-align: center;
   font-size: 14px;
   color: #FF6666;
-  background: #FFCC99;
+  width: 800px;
+  height: 648px;
+  margin: auto;
+  border: 1px solid red;
+  border-top: none;
+  border-bottom: none;
 }
 
 a.home {
@@ -40,6 +50,7 @@ header{
   font-size: 50px;
   padding-top: 50px;
   padding-bottom: 15px;
+  margin: auto;
   color: #CCFFCC;
 }
 
