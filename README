@@ -1,12 +1,16 @@
 Live LINK: http://kim-n.github.io/Asteroids
 
-
-06/10/14
-Asteroids Redone
+To-Do:
+07/14/14
+- When bubbles split, smaller bubbles increase speed
+- When bubbles split, smaller bubbles should not move stricly horizontaly or strictly vertically
+- Replace alert box with something less irritating
+- Game should refresh (not entire page) after a win/loss
+- Add popping effect to small (maybe all) bubbles
 
 07/11/14
 To do:
-- Replace destroyed bubbles by new bubbles
++ Replace destroyed bubbles by new bubbles
 + Split poked bubbles (DONE: splits bubbles into two)
 - Have popping effect on bubbles
 - Make new bubbles increase veocity
@@ -14,3 +18,11 @@ To do:
 Bugs:
 - Ship can disappear behind score bar
 - Ship doesn't thrust smoothly/ fast enough
+
+-------------------------------------------------------------
+
+
+06/10/14
+Asteroids Redone
+
+
