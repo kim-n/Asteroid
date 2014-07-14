@@ -1,6 +1,8 @@
 Live LINK: http://kim-n.github.io/Asteroids
 
+
 To-Do:
+-------------------------------------------------------------
 07/14/14
 - When bubbles split, smaller bubbles increase speed
 - When bubbles split, smaller bubbles should not move stricly horizontaly or strictly vertically
@@ -9,17 +11,17 @@ To-Do:
 - Add popping effect to small (maybe all) bubbles
 
 07/11/14
-To do:
 + Replace destroyed bubbles by new bubbles
 + Split poked bubbles (DONE: splits bubbles into two)
 - Have popping effect on bubbles
 - Make new bubbles increase veocity
 
-Bugs:
+Bugs
+-------------------------------------------------------------
 - Ship can disappear behind score bar
 - Ship doesn't thrust smoothly/ fast enough
 
--------------------------------------------------------------
+
 
 
 06/10/14
